@@ -25,18 +25,19 @@ CREATE INDEX IF NOT EXISTS idx_spots_spotter ON spots (spotter_id);
 CREATE INDEX IF NOT EXISTS idx_spots_spotted ON spots (spotted_id);
 
 CREATE TABLE IF NOT EXISTS members (
-    discord_id   TEXT PRIMARY KEY,      -- Discord user ID, stored as text
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    discord_id   TEXT UNIQUE,           -- Discord user ID as text; NULL until we've collected it
     name         TEXT NOT NULL,
     pronouns     TEXT,
     major        TEXT,
-    year         TEXT,
+    year         TEXT,                  -- graduation year, e.g. '2028'
     birthday     TEXT,                  -- 'YYYY-MM-DD'
-    phone        TEXT,
+    phone        TEXT,                  -- '(310) 555-0123'
     email        TEXT,
-    github       TEXT,
+    github       TEXT,                  -- username only, no URL
     skills       TEXT,                  -- comma-separated, e.g. 'Python, Figma'
-    involvement  TEXT,
-    active       INTEGER NOT NULL DEFAULT 1   -- 1 = active, 0 = inactive
+    involvement  TEXT,                  -- comma-separated
+    active       INTEGER NOT NULL DEFAULT 1   -- 1 = active, 0 = inactive (alumni)
 );
 """
 

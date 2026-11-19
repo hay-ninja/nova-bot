@@ -17,8 +17,10 @@ class Members(commands.Cog):
     #   - exactly one of `name` or `user` should be given; otherwise reply asking for one
     #   - name -> GET /members?name=...      (a list: 0, 1 or several matches)
     #     user -> GET /members/{user.id}     (one member, or 404)
-    #   - show each member as a discord.Embed (name, pronouns, major, year,
+    #   - user -> 404 can also mean "their Discord ID isn't in the roster yet"; suggest searching by name
+    #   - show each member as a discord.Embed (name, pronouns, major, class year,
     #     involvement, skills, GitHub, email, phone); skip empty fields
+    #     (github is a username: link it as https://github.com/<username>)
     #   - always reply with ephemeral=True so personal info stays out of the channel
     #   - several matches: show up to 5 embeds (send_message(embeds=[...]))
     @app_commands.command(name="member", description="Look up a club member")

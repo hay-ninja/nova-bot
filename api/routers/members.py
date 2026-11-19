@@ -36,6 +36,7 @@ def search_members(name: str, db: sqlite3.Connection = Depends(get_db)) -> list[
 # =====================================================================
 #   - return that one Member
 #   - 404 "Member not found" if there's no row
+#     (this also happens for real members whose Discord ID hasn't been collected yet)
 @router.get("/{discord_id}", response_model=Member)
 def get_member(discord_id: str, db: sqlite3.Connection = Depends(get_db)) -> Member:
     raise HTTPException(501, "Not built yet (task 3)")

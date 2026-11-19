@@ -35,6 +35,7 @@ class Birthdays(commands.Cog):
     #   - otherwise post ONE message in BIRTHDAY_CHANNEL_ID mentioning everyone:
     #       "🎂 Happy birthday <@id1> and <@id2>!"
     #     (here mentions DO ping, which is the point)
+    #   - some members have no discord_id yet: use their **name** instead of a mention
     #   - testing tip: temporarily change POST_AT to a minute from now,
     #     or call the endpoint with ?date= in /docs
     @tasks.loop(time=POST_AT)

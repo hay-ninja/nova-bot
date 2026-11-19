@@ -6,7 +6,7 @@ from tests.helpers import make_member, make_spot
 
 
 def test_health_counts_spots_and_members(client, db):
-    make_member(db, "100000000000000001", "Alice Chen")
+    make_member(db, "Alice Chen", discord_id="100000000000000001")
     make_spot(db, spotter_id="100000000000000001", spotted_id="100000000000000002")
     make_spot(db, spotter_id="100000000000000001", spotted_id="100000000000000003")
 

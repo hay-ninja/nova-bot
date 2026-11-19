@@ -35,9 +35,11 @@ def make_spot(
     db.commit()
 
 
-def make_member(db: sqlite3.Connection, discord_id: str, name: str, **fields) -> None:
-    """Insert one member. Pass any other column as a keyword, e.g. birthday="2005-02-29", active=0."""
-    columns = {"discord_id": discord_id, "name": name, "active": 1, **fields}
+def make_member(db: sqlite3.Connection, name: str, **fields) -> None:
+    """Insert one member. Pass any other column as a keyword, e.g.
+    make_member(db, "Bob Martinez", discord_id="100000000000000002", birthday="2005-02-28", active=0)
+    """
+    columns = {"name": name, "active": 1, **fields}
     names = ", ".join(columns)
     placeholders = ", ".join("?" for _ in columns)
     db.execute(f"INSERT INTO members ({names}) VALUES ({placeholders})", tuple(columns.values()))
