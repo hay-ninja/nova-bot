@@ -1,0 +1,14 @@
+[Unit]
+Description=Spotted Discord bot
+After=network-online.target spotted-api.service
+Wants=network-online.target spotted-api.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/nova-bot
+ExecStart=/home/ubuntu/nova-bot/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

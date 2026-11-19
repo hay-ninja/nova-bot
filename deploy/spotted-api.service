@@ -1,0 +1,15 @@
+[Unit]
+Description=Spotted API (FastAPI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/nova-bot
+# 127.0.0.1 only: the bot on this same machine can reach it, nothing outside can.
+ExecStart=/home/ubuntu/nova-bot/.venv/bin/uvicorn api.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
