@@ -29,10 +29,11 @@ class Spotted(commands.Cog):
     #   - ignore messages from bots, and messages outside SPOTTED_CHANNEL_ID
     #   - send the raw facts to POST /spots (see SpotIn in api/models.py):
     #       spotter_id       = str(message.author.id)
-    #       spotted_ids      = [str(user.id) for user in message.mentions]
+    #       spotted_ids      = ids of message.mentions, skipping bot accounts (user.bot)
+    #                          (whether someone is a bot is a Discord fact, so the bot filters it)
     #       attachment_types = [a.content_type or "" for a in message.attachments]
     #       message_id, channel_id as strings
-    #   - 201 -> react with 📸
+    #   - 201 -> react with ❗
     #     409 -> do nothing (already counted)
     #     400 -> reply with resp.json()["detail"]
     @commands.Cog.listener()

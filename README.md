@@ -16,7 +16,9 @@ There are two programs:
 > The bot only translates between Discord and HTTP. It hands the API raw facts, and the API decides.
 > Test: if we replaced the bot with a website tomorrow, would this rule still apply? If yes, it belongs in the API.
 
-**Start by reading the worked example**, `/ping`, end to end: `bot/features/health.py` → `bot/api_client.py` → `api/main.py` (`health()`).
+**New to APIs?** Read [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) first. It has the architecture diagram and a quick guide to how APIs work.
+
+**Then read the worked example**, `/ping`, end to end: `bot/features/health.py` → `bot/api_client.py` → `api/main.py` (`health()`).
 
 ## Setup (once)
 
