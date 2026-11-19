@@ -25,7 +25,7 @@ There are two programs:
 You need Python 3.12 or newer, and git.
 
 1. **Make your own test bot.** Never share bot tokens.
-   1. In the [Developer Portal](https://discord.com/developers/applications), click New Application and name it `spotted-dev-<yourname>`.
+   1. In the [Developer Portal](https://discord.com/developers/applications), click New Application and name it `[smt with ur name in it]`.
    2. Open the **Bot** tab, click Reset Token, and copy the token.
    3. On the same tab, turn on **Message Content Intent**.
    4. Open OAuth2 → URL Generator. Under scopes, check `bot` and `applications.commands`. Under permissions, check View Channels, Send Messages, Embed Links, Add Reactions and Read Message History.
